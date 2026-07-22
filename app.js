@@ -70,7 +70,7 @@ Open My Trip →
 
 ${trip.days.slice(0,4).map(day=>`
 
-<div class="tripCard">
+<div class="tripCard" onclick="openDay('${day.id}')">
 
 <div class="emoji">${day.icon}</div>
 
