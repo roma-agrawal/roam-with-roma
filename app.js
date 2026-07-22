@@ -1,24 +1,75 @@
+// ========================================
+// Roam with Roma v1.0
+// App Controller (Part A)
+// ========================================
+
 const screen = document.getElementById("screen");
 
-// ---------- Countdown ----------
-function updateCountdown() {
+let currentPage = "home";
 
-    const tripDate = new Date(trip.startDate);
+// -------------------------------
+// Countdown
+// -------------------------------
+
+function updateCountdown() {
 
     const today = new Date();
 
-    const diff = tripDate - today;
+    const start = new Date(trip.startDate);
+
+    const diff = start - today;
 
     const days = Math.ceil(diff / (1000 * 60 * 60 * 24));
 
-    document.getElementById("tripCountdown").innerHTML =
-        `${days} Days to Switzerland ✈️`;
+    const countdown = document.getElementById("tripCountdown");
+
+    if (days > 0) {
+
+        countdown.innerHTML = days + " Days to Switzerland";
+
+    }
+    else if (days === 0) {
+
+        countdown.innerHTML = "Your trip starts today!";
+
+    }
+    else {
+
+        countdown.innerHTML = "Enjoy Switzerland 🇨🇭";
+
+    }
 
 }
 
-// ---------- Navigation ----------
+// -------------------------------
+// Bottom Navigation
+// -------------------------------
+
+function setActiveButton(page){
+
+    document
+        .querySelectorAll(".bottomNav button")
+        .forEach(btn=>btn.classList.remove("active"));
+
+    if(page==="home")
+        document.getElementById("homeBtn").classList.add("active");
+
+    if(page==="trip")
+        document.getElementById("tripBtn").classList.add("active");
+
+    if(page==="budget")
+        document.getElementById("budgetBtn").classList.add("active");
+
+    if(page==="more")
+        document.getElementById("moreBtn").classList.add("active");
+
+}
 
 function navigate(page){
+
+    currentPage = page;
+
+    setActiveButton(page);
 
     switch(page){
 
@@ -42,159 +93,511 @@ function navigate(page){
 
 }
 
-// ---------- Home ----------
+// -------------------------------
+// HOME
+// -------------------------------
 
 function renderHome(){
 
-screen.innerHTML=`
+    const template =
+        document.getElementById("home-template");
 
-<div class="hero">
+    screen.innerHTML = template.innerHTML;
 
-<h2>${trip.title}</h2>
+    document.getElementById("tripDays").innerHTML =
+        trip.days.length;
 
-<p>17 Aug – 25 Aug 2026</p>
+    const list =
+        document.getElementById("upcomingDays");
 
-<button class="primaryBtn" onclick="navigate('trip')">
+    list.innerHTML = "";
 
-Open My Trip →
+    trip.days.forEach(day=>{
 
-</button>
+        list.innerHTML += `
 
-</div>
+        <div class="tripCard"
+             onclick="openDay('${day.id}')">
 
-<div class="section">
+            <div class="tripIcon">
 
-<h3>Upcoming</h3>
+                ${day.icon}
 
-<div class="cards">
+            </div>
 
-${trip.days.slice(0,4).map(day=>`
+            <div class="tripInfo">
 
-<div class="tripCard" onclick="openDay('${day.id}')">
+                <h3>${day.date}</h3>
 
-<div class="emoji">${day.icon}</div>
+                <p>${day.title}</p>
 
-<div>
+            </div>
 
-<h4>${day.title}</h4>
+            <div class="tripArrow">
 
-<p>${day.date}</p>
+                ›
 
-</div>
+            </div>
 
-</div>
+        </div>
 
-`).join("")}
+        `;
 
-</div>
-
-</div>
-
-`;
+    });
 
 }
 
-// ---------- Trip ----------
+// -------------------------------
+// ITINERARY
+// -------------------------------
 
 function renderTrip(){
 
-screen.innerHTML=`
+    const template =
+        document.getElementById("trip-template");
 
-<h2 class="pageTitle">
+    screen.innerHTML = template.innerHTML;
 
-My Switzerland Trip
+    const list =
+        document.getElementById("tripList");
 
-</h2>
+    list.innerHTML = "";
 
-<div class="cards">
+    trip.days.forEach(day=>{
 
-${trip.days.map(day=>`
+        list.innerHTML += `
 
-<div class="tripCard">
+        <div class="tripCard"
+             onclick="openDay('${day.id}')">
 
-<div class="emoji">
+            <div class="tripIcon">
 
-${day.icon}
+                ${day.icon}
 
-</div>
+            </div>
 
-<div>
+            <div class="tripInfo">
 
-<h3>Day ${day.day}</h3>
+                <h3>${day.date}</h3>
 
-<p>${day.date}</p>
+                <p>${day.title}</p>
 
-<h4>${day.title}</h4>
+            </div>
 
-</div>
+            <div class="tripArrow">
 
-</div>
+                ›
 
-`).join("")}
+            </div>
 
-</div>
+        </div>
 
-`;
+        `;
+
+    });
 
 }
 
+// -------------------------------
+// DAY DETAILS
+// -------------------------------
 
+function openDay(id){
 
-function openDay(dayId){
-
-    const day = trip.days.find(d => d.id === dayId);
+    const day =
+        trip.days.find(d=>d.id===id);
 
     if(!day) return;
 
     screen.innerHTML = `
 
-    <button class="backBtn" onclick="navigate('trip')">
+    <button class="backBtn"
+        onclick="navigate('trip')">
 
         ← Back
 
     </button>
 
-    <div class="hero">
+    <section class="hero">
 
-        <h2>${day.icon} Day ${day.day}</h2>
+        <div class="heroOverlay">
 
-        <p>${day.date}</p>
+            <h2>${day.icon} ${day.title}</h2>
 
-        <h3>${day.title}</h3>
+            <p>${day.date}</p>
+
+        </div>
+
+    </section>
+
+    <section
+        class="section"
+        style="margin-top:24px;">
+
+        ${day.timeline.map(item=>`
+
+        <div class="timelineCard">
+
+            <div class="timelineIcon">
+
+                ${item.icon}
+
+            </div>
+
+            <div class="timelineContent">
+
+                <h4>${item.title}</h4>
+
+                <p>${item.subtitle}</p>
+
+            </div>
+
+            <div class="timelineTime">
+
+                ${item.time}
+
+            </div>
+
+        </div>
+
+        `).join("")}
+
+    </section>
+
+    `;
+
+}
+
+// -------------------------------
+// Placeholder
+// (Completed in Part B)
+// -------------------------------
+
+// ========================================
+// BUDGET
+// ========================================
+
+function renderBudget(){
+
+    const template =
+        document.getElementById("budget-template");
+
+    screen.innerHTML =
+        template.innerHTML;
+
+    const totalINR =
+        trip.budget.flights +
+        trip.budget.hotels +
+        trip.budget.food +
+        trip.budget.misc;
+
+    document.getElementById("budgetContent").innerHTML = `
+
+        <div class="budgetCard">
+
+            <h1>₹${totalINR.toLocaleString("en-IN")}</h1>
+
+            <p>Total Planned Budget</p>
+
+        </div>
+
+        <div class="budgetItem">
+
+            <span>✈ Flights</span>
+
+            <strong>₹${trip.budget.flights.toLocaleString("en-IN")}</strong>
+
+        </div>
+
+        <div class="budgetItem">
+
+            <span>🏨 Hotels</span>
+
+            <strong>₹${trip.budget.hotels.toLocaleString("en-IN")}</strong>
+
+        </div>
+
+        <div class="budgetItem">
+
+            <span>🍽 Food</span>
+
+            <strong>₹${trip.budget.food.toLocaleString("en-IN")}</strong>
+
+        </div>
+
+        <div class="budgetItem">
+
+            <span>🎁 Miscellaneous</span>
+
+            <strong>₹${trip.budget.misc.toLocaleString("en-IN")}</strong>
+
+        </div>
+
+        <div class="budgetItem">
+
+            <span>🚗 Car Rental</span>
+
+            <strong>CHF ${trip.budget.carRentalCHF}</strong>
+
+        </div>
+
+    `;
+
+}
+
+// ========================================
+// MORE
+// ========================================
+
+function renderMore(){
+
+    const template =
+        document.getElementById("more-template");
+
+    screen.innerHTML =
+        template.innerHTML;
+
+}
+
+// ========================================
+// FLIGHTS
+// ========================================
+
+function showFlights(){
+
+    screen.innerHTML = `
+
+    <button class="backBtn"
+        onclick="navigate('more')">
+
+        ← Back
+
+    </button>
+
+    <h2 class="pageTitle">
+
+        ✈ Flights
+
+    </h2>
+
+    ${trip.flights.map(f=>`
+
+        <div class="tripCard">
+
+            <div class="tripIcon">
+
+                ✈️
+
+            </div>
+
+            <div class="tripInfo">
+
+                <h3>${f.sector}</h3>
+
+                <p>${f.flight}</p>
+
+                <p>${f.departure}</p>
+
+                <p>${f.arrival}</p>
+
+            </div>
+
+        </div>
+
+    `).join("")}
+
+    `;
+
+}
+
+// ========================================
+// HOTELS
+// ========================================
+
+function showHotels(){
+
+    screen.innerHTML = `
+
+    <button class="backBtn"
+        onclick="navigate('more')">
+
+        ← Back
+
+    </button>
+
+    <h2 class="pageTitle">
+
+        🏨 Hotels
+
+    </h2>
+
+    ${trip.hotels.map(h=>`
+
+        <div class="tripCard">
+
+            <div class="tripIcon">
+
+                🏨
+
+            </div>
+
+            <div class="tripInfo">
+
+                <h3>${h.name}</h3>
+
+                <p>${h.dates}</p>
+
+                <p>${h.nights} Nights</p>
+
+            </div>
+
+        </div>
+
+    `).join("")}
+
+    `;
+
+}
+
+// ========================================
+// PACKING
+// ========================================
+
+function showPacking(){
+
+    screen.innerHTML = `
+
+    <button class="backBtn"
+        onclick="navigate('more')">
+
+        ← Back
+
+    </button>
+
+    <h2 class="pageTitle">
+
+        🎒 Packing List
+
+    </h2>
+
+    ${trip.packing.map(item=>`
+
+        <div class="tripCard">
+
+            <div class="tripIcon">
+
+                ✅
+
+            </div>
+
+            <div class="tripInfo">
+
+                <h3>${item}</h3>
+
+            </div>
+
+        </div>
+
+    `).join("")}
+
+    `;
+
+}
+
+// ========================================
+// EMERGENCY
+// ========================================
+
+function showEmergency(){
+
+    screen.innerHTML = `
+
+    <button class="backBtn"
+        onclick="navigate('more')">
+
+        ← Back
+
+    </button>
+
+    <h2 class="pageTitle">
+
+        📞 Emergency
+
+    </h2>
+
+    <div class="budgetItem">
+
+        <span>🚓 Police</span>
+
+        <strong>${trip.emergency.police}</strong>
 
     </div>
 
-    <div class="section">
+    <div class="budgetItem">
 
-        <div class="cards">
+        <span>🚑 Ambulance</span>
 
-            ${day.timeline.map(item=>`
+        <strong>${trip.emergency.ambulance}</strong>
 
-                <div class="timelineCard">
+    </div>
 
-                    <div class="timelineIcon">
+    <div class="budgetItem">
 
-                        ${item.icon}
+        <span>🚒 Fire</span>
 
-                    </div>
+        <strong>${trip.emergency.fire}</strong>
 
-                    <div class="timelineContent">
+    </div>
 
-                        <h4>${item.title}</h4>
+    <div class="budgetItem">
 
-                        <p>${item.subtitle}</p>
+        <span>🚗 Roadside</span>
 
-                    </div>
+        <strong>${trip.emergency.roadside}</strong>
 
-                    <div class="timelineTime">
+    </div>
 
-                        ${item.time}
+    `;
 
-                    </div>
+}
 
-                </div>
+// ========================================
+// ABOUT
+// ========================================
 
-            `).join("")}
+function showAbout(){
+
+    screen.innerHTML = `
+
+    <button class="backBtn"
+        onclick="navigate('more')">
+
+        ← Back
+
+    </button>
+
+    <h2 class="pageTitle">
+
+        ℹ About
+
+    </h2>
+
+    <div class="tripCard">
+
+        <div class="tripInfo">
+
+            <h3>Roam with Roma v1.0</h3>
+
+            <p>
+
+            Switzerland Trip Planner
+
+            <br><br>
+
+            Built especially for Roma's
+            Switzerland Adventure 2026.
+
+            </p>
 
         </div>
 
@@ -204,149 +607,24 @@ function openDay(dayId){
 
 }
 
+// ========================================
+// REGISTER SERVICE WORKER
+// ========================================
 
-// ---------- Budget ----------
+if("serviceWorker" in navigator){
 
-function renderBudget(){
+    window.addEventListener("load",()=>{
 
-const total=
+        navigator.serviceWorker
+        .register("service-worker.js");
 
-trip.budget.flights+
-
-trip.budget.hotels+
-
-trip.budget.food+
-
-trip.budget.misc;
-
-screen.innerHTML=`
-
-<h2 class="pageTitle">
-
-Budget
-
-</h2>
-
-<div class="budgetCard">
-
-<h1>
-
-₹${total.toLocaleString("en-IN")}
-
-</h1>
-
-<p>Estimated Budget (excluding car rental)</p>
-
-</div>
-
-<div class="cards">
-
-<div class="tripCard">
-
-Flights
-
-₹${trip.budget.flights.toLocaleString("en-IN")}
-
-</div>
-
-<div class="tripCard">
-
-Hotels
-
-₹${trip.budget.hotels.toLocaleString("en-IN")}
-
-</div>
-
-<div class="tripCard">
-
-Food
-
-₹${trip.budget.food.toLocaleString("en-IN")}
-
-</div>
-
-<div class="tripCard">
-
-Misc
-
-₹${trip.budget.misc.toLocaleString("en-IN")}
-
-</div>
-
-<div class="tripCard">
-
-Car Rental
-
-CHF ${trip.budget.carRentalCHF}
-
-</div>
-
-</div>
-
-`;
+    });
 
 }
-
-// ---------- More ----------
-
-function renderMore(){
-
-screen.innerHTML=`
-
-<h2 class="pageTitle">
-
-More
-
-</h2>
-
-<div class="cards">
-
-<div class="tripCard">
-
-✈ Flights
-
-</div>
-
-<div class="tripCard">
-
-🏨 Hotels
-
-</div>
-
-<div class="tripCard">
-
-🎒 Packing
-
-</div>
-
-<div class="tripCard">
-
-📞 Emergency
-
-</div>
-
-<div class="tripCard">
-
-ℹ About
-
-</div>
-
-</div>
-
-`;
-
-}
-
-// ---------- Start App ----------
+// -------------------------------
+// Start App
+// -------------------------------
 
 updateCountdown();
 
 navigate("home");
-
-// ---------- Service Worker ----------
-
-if("serviceWorker" in navigator){
-
-navigator.serviceWorker.register("service-worker.js");
-
-}
