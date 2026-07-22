@@ -1,406 +1,634 @@
-/* ------------------------------
+/* =======================================
    Roam with Roma v1.0
-   Apple Inspired UI
------------------------------- */
+   Apple Inspired Design
+======================================= */
 
 :root{
 
-    --primary:#0A84FF;
-    --background:#F5F7FA;
-    --card:#ffffff;
-    --text:#111111;
-    --sub:#6E6E73;
-    --shadow:0 12px 30px rgba(0,0,0,.08);
-    --radius:24px;
+--primary:#0A84FF;
+--primary-light:#EAF4FF;
+
+--background:#F4F6F9;
+
+--card:#FFFFFF;
+
+--text:#1C1C1E;
+
+--sub:#6E6E73;
+
+--radius:22px;
+
+--shadow:0 12px 30px rgba(0,0,0,.08);
 
 }
 
 *{
-
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-
+margin:0;
+padding:0;
+box-sizing:border-box;
 }
 
 html{
-
-    scroll-behavior:smooth;
-
+scroll-behavior:smooth;
 }
 
 body{
 
-    background:var(--background);
-    font-family:Inter,sans-serif;
-    color:var(--text);
+font-family:Inter,sans-serif;
+
+background:var(--background);
+
+color:var(--text);
 
 }
 
 #app{
 
-    max-width:480px;
-    margin:auto;
-    min-height:100vh;
-    background:#fff;
-    position:relative;
-    overflow:hidden;
+max-width:500px;
+
+margin:auto;
+
+background:white;
+
+min-height:100vh;
+
+position:relative;
+
+overflow:hidden;
 
 }
 
-/* ------------------------------
-   HEADER
------------------------------- */
+/* ========================= */
 
 .topBar{
 
-    padding:26px 20px 12px;
+display:flex;
 
-    display:flex;
+justify-content:space-between;
 
-    justify-content:space-between;
+align-items:center;
 
-    align-items:center;
+padding:22px;
 
-    background:white;
+position:sticky;
 
-    position:sticky;
+top:0;
 
-    top:0;
+background:rgba(255,255,255,.95);
 
-    z-index:99;
+backdrop-filter:blur(20px);
 
-    border-bottom:1px solid #efefef;
+z-index:99;
+
+border-bottom:1px solid #ECECEC;
 
 }
 
 .topBar h1{
 
-    font-size:28px;
+font-size:28px;
 
-    font-weight:700;
+font-weight:700;
 
 }
 
 #tripCountdown{
 
-    color:var(--sub);
+margin-top:6px;
 
-    margin-top:5px;
+color:var(--sub);
 
-    font-size:15px;
-
-}
-
-.avatar{
-
-    width:52px;
-
-    height:52px;
-
-    border-radius:50%;
-
-    background:#EEF6FF;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    font-size:28px;
+font-size:14px;
 
 }
 
-/* ------------------------------
-   MAIN
------------------------------- */
+.profile{
+
+width:52px;
+
+height:52px;
+
+background:var(--primary-light);
+
+border-radius:50%;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+font-size:28px;
+
+}
+
+/* ========================= */
 
 #screen{
 
-    padding:18px;
+padding:18px;
 
-    padding-bottom:110px;
+padding-bottom:110px;
 
 }
 
-/* ------------------------------
-   HERO
------------------------------- */
+/* ========================= */
 
 .hero{
 
-    background:linear-gradient(
-        135deg,
-        #0A84FF,
-        #4AA3FF
-    );
+height:220px;
 
-    color:white;
+border-radius:30px;
 
-    padding:28px;
+overflow:hidden;
 
-    border-radius:28px;
+background:
 
-    box-shadow:var(--shadow);
+linear-gradient(
 
-}
+rgba(0,0,0,.25),
 
-.hero h2{
+rgba(0,0,0,.25)
 
-    font-size:30px;
+),
 
-    margin-bottom:10px;
+url("images/switzerland.jpg");
 
-}
+background-size:cover;
 
-.hero p{
+background-position:center;
 
-    opacity:.9;
+display:flex;
 
-    margin-bottom:22px;
+align-items:flex-end;
 
-}
+padding:28px;
 
-.primaryBtn{
+color:white;
 
-    background:white;
-
-    color:#0A84FF;
-
-    border:none;
-
-    padding:14px 22px;
-
-    border-radius:16px;
-
-    font-weight:600;
-
-    font-size:15px;
-
-    cursor:pointer;
+box-shadow:var(--shadow);
 
 }
 
-/* ------------------------------
-   SECTION
------------------------------- */
+.heroOverlay h2{
 
-.section{
+font-size:34px;
 
-    margin-top:34px;
+margin-bottom:8px;
 
 }
 
-.section h3{
+.heroOverlay p{
 
-    margin-bottom:18px;
+opacity:.95;
 
-    font-size:22px;
+font-size:18px;
+
+}
+
+/* ========================= */
+
+.summaryCard{
+
+margin-top:24px;
+
+background:white;
+
+padding:22px;
+
+border-radius:var(--radius);
+
+box-shadow:var(--shadow);
 
 }
 
-/* ------------------------------
-   CARDS
------------------------------- */
+.summaryCard h3{
 
-.cards{
-
-    display:flex;
-
-    flex-direction:column;
-
-    gap:16px;
+margin-bottom:18px;
 
 }
+
+.summaryGrid{
+
+display:grid;
+
+grid-template-columns:repeat(2,1fr);
+
+gap:18px;
+
+text-align:center;
+
+}
+
+.summaryGrid h4{
+
+font-size:28px;
+
+color:var(--primary);
+
+}
+
+.summaryGrid p{
+
+margin-top:5px;
+
+color:var(--sub);
+
+}
+
+/* ========================= */
+
+.sectionTitle{
+
+margin:28px 0 18px;
+
+font-size:24px;
+
+}
+
+/* ========================= */
 
 .tripCard{
 
-    background:white;
+display:flex;
 
-    border-radius:22px;
+align-items:center;
 
-    padding:18px;
+gap:16px;
 
-    display:flex;
+background:white;
 
-    gap:16px;
+padding:18px;
 
-    align-items:center;
+border-radius:22px;
 
-    box-shadow:var(--shadow);
+box-shadow:var(--shadow);
 
-    transition:.25s;
+margin-bottom:16px;
 
-    cursor:pointer;
+transition:.25s;
+
+cursor:pointer;
 
 }
 
 .tripCard:hover{
 
-    transform:translateY(-3px);
+transform:translateY(-3px);
 
 }
 
-.tripCard h3{
+.tripIcon{
 
-    font-size:16px;
+width:58px;
 
-}
+height:58px;
 
-.tripCard h4{
+border-radius:18px;
 
-    margin-top:4px;
+background:var(--primary-light);
 
-}
+display:flex;
 
-.tripCard p{
+justify-content:center;
 
-    color:var(--sub);
+align-items:center;
 
-    margin-top:4px;
+font-size:30px;
 
-}
-
-.emoji{
-
-    width:58px;
-
-    height:58px;
-
-    border-radius:18px;
-
-    background:#EEF6FF;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    font-size:30px;
+flex-shrink:0;
 
 }
 
-/* ------------------------------
-   PAGE TITLE
------------------------------- */
+.tripInfo{
+
+flex:1;
+
+}
+
+.tripInfo h3{
+
+font-size:18px;
+
+margin-bottom:5px;
+
+}
+
+.tripInfo p{
+
+color:var(--sub);
+
+font-size:14px;
+
+}
+
+.tripArrow{
+
+font-size:24px;
+
+color:#B0B0B0;
+
+}
+
+/* ========================= */
+
+.timelineCard{
+
+display:flex;
+
+align-items:center;
+
+background:white;
+
+padding:18px;
+
+margin-bottom:16px;
+
+border-radius:20px;
+
+box-shadow:var(--shadow);
+
+}
+
+.timelineIcon{
+
+width:54px;
+
+height:54px;
+
+background:var(--primary-light);
+
+border-radius:16px;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+font-size:28px;
+
+margin-right:16px;
+
+}
+
+.timelineContent{
+
+flex:1;
+
+}
+
+.timelineContent h4{
+
+font-size:17px;
+
+margin-bottom:5px;
+
+}
+
+.timelineContent p{
+
+font-size:14px;
+
+color:var(--sub);
+
+}
+
+.timelineTime{
+
+font-weight:700;
+
+color:var(--primary);
+
+}
+
+/* ========================= */
 
 .pageTitle{
 
-    margin-bottom:20px;
+font-size:30px;
 
-    font-size:28px;
+margin-bottom:22px;
 
 }
 
-/* ------------------------------
-   BUDGET
------------------------------- */
+/* ========================= */
 
 .budgetCard{
 
-    background:linear-gradient(
-        135deg,
-        #34C759,
-        #59D67D
-    );
+background:
 
-    color:white;
+linear-gradient(
 
-    border-radius:28px;
+135deg,
 
-    padding:28px;
+#34C759,
 
-    margin-bottom:24px;
+#5AD97A
 
-    box-shadow:var(--shadow);
+);
+
+padding:28px;
+
+color:white;
+
+border-radius:28px;
+
+box-shadow:var(--shadow);
+
+margin-bottom:24px;
 
 }
 
 .budgetCard h1{
 
-    font-size:42px;
+font-size:42px;
 
-    margin-bottom:8px;
+margin-bottom:8px;
 
 }
 
-/* ------------------------------
-   NAVIGATION
------------------------------- */
+.budgetItem{
+
+display:flex;
+
+justify-content:space-between;
+
+background:white;
+
+padding:18px;
+
+border-radius:18px;
+
+margin-bottom:14px;
+
+box-shadow:var(--shadow);
+
+}
+
+/* ========================= */
+
+.menuList{
+
+display:flex;
+
+flex-direction:column;
+
+gap:16px;
+
+}
+
+.menuList button{
+
+background:white;
+
+border:none;
+
+padding:20px;
+
+font-size:18px;
+
+border-radius:20px;
+
+box-shadow:var(--shadow);
+
+cursor:pointer;
+
+text-align:left;
+
+}
+
+/* ========================= */
 
 .bottomNav{
 
-    position:fixed;
+position:fixed;
 
-    bottom:0;
+bottom:0;
 
-    left:50%;
+left:50%;
 
-    transform:translateX(-50%);
+transform:translateX(-50%);
 
-    width:100%;
+width:100%;
 
-    max-width:480px;
+max-width:500px;
 
-    background:rgba(255,255,255,.95);
+display:flex;
 
-    backdrop-filter:blur(20px);
+justify-content:space-around;
 
-    display:flex;
+padding:12px 0 calc(12px + env(safe-area-inset-bottom));
 
-    justify-content:space-around;
+background:rgba(255,255,255,.95);
 
-    padding:12px 0 18px;
+backdrop-filter:blur(20px);
 
-    border-top:1px solid #ececec;
+border-top:1px solid #ECECEC;
 
 }
 
 .bottomNav button{
 
-    background:none;
+background:none;
 
-    border:none;
+border:none;
 
-    display:flex;
+display:flex;
 
-    flex-direction:column;
+flex-direction:column;
 
-    align-items:center;
+align-items:center;
 
-    color:#777;
+cursor:pointer;
 
-    font-size:22px;
+color:#7A7A7A;
 
-    cursor:pointer;
+}
+
+.bottomNav button.active{
+
+color:var(--primary);
+
+}
+
+.icon{
+
+font-size:24px;
 
 }
 
 .bottomNav span{
 
-    font-size:12px;
+font-size:12px;
 
-    margin-top:5px;
+margin-top:5px;
 
 }
 
-/* ------------------------------
-   DARK MODE
------------------------------- */
+/* ========================= */
+
+.backBtn{
+
+background:none;
+
+border:none;
+
+font-size:18px;
+
+font-weight:600;
+
+margin-bottom:20px;
+
+color:var(--primary);
+
+cursor:pointer;
+
+}
+
+/* ========================= */
+
+@media(max-width:430px){
+
+.topBar h1{
+
+font-size:24px;
+
+}
+
+.hero{
+
+height:190px;
+
+}
+
+.heroOverlay h2{
+
+font-size:28px;
+
+}
+
+.summaryGrid{
+
+grid-template-columns:1fr 1fr;
+
+}
+
+}
+
+/* ========================= */
 
 @media(prefers-color-scheme:dark){
 
 :root{
 
---background:#111;
+--background:#000;
 
 --card:#1C1C1E;
 
---text:#fff;
+--text:#FFF;
 
---sub:#bdbdbd;
+--sub:#A0A0A5;
 
 }
 
@@ -418,13 +646,17 @@ background:#000;
 
 .topBar{
 
-background:#111;
+background:rgba(20,20,20,.9);
 
-border-bottom:1px solid #2a2a2a;
+border-bottom:1px solid #2A2A2A;
 
 }
 
-.tripCard{
+.summaryCard,
+.tripCard,
+.timelineCard,
+.budgetItem,
+.menuList button{
 
 background:#1C1C1E;
 
@@ -434,96 +666,8 @@ background:#1C1C1E;
 
 background:rgba(18,18,18,.95);
 
-border-top:1px solid #2b2b2b;
+border-top:1px solid #2A2A2A;
 
 }
-
-}
-
-.backBtn{
-
-    margin-bottom:20px;
-
-    background:none;
-
-    border:none;
-
-    color:#0A84FF;
-
-    font-size:18px;
-
-    font-weight:600;
-
-    cursor:pointer;
-
-}
-
-.timelineCard{
-
-    display:flex;
-
-    align-items:center;
-
-    background:white;
-
-    padding:18px;
-
-    border-radius:20px;
-
-    box-shadow:var(--shadow);
-
-    margin-bottom:16px;
-
-}
-
-.timelineIcon{
-
-    width:52px;
-
-    height:52px;
-
-    border-radius:16px;
-
-    background:#EEF6FF;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    font-size:26px;
-
-}
-
-.timelineContent{
-
-    flex:1;
-
-    margin-left:16px;
-
-}
-
-.timelineContent h4{
-
-    font-size:17px;
-
-    margin-bottom:4px;
-
-}
-
-.timelineContent p{
-
-    color:var(--sub);
-
-    font-size:14px;
-
-}
-
-.timelineTime{
-
-    font-weight:700;
-
-    color:#0A84FF;
 
 }
