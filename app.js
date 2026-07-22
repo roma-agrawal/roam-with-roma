@@ -283,3 +283,68 @@ if("serviceWorker" in navigator){
 navigator.serviceWorker.register("service-worker.js");
 
 }
+
+
+function openDay(dayId){
+
+    const day = trip.days.find(d => d.id === dayId);
+
+    if(!day) return;
+
+    screen.innerHTML = `
+
+    <button class="backBtn" onclick="navigate('trip')">
+
+        ← Back
+
+    </button>
+
+    <div class="hero">
+
+        <h2>${day.icon} Day ${day.day}</h2>
+
+        <p>${day.date}</p>
+
+        <h3>${day.title}</h3>
+
+    </div>
+
+    <div class="section">
+
+        <div class="cards">
+
+            ${day.timeline.map(item=>`
+
+                <div class="timelineCard">
+
+                    <div class="timelineIcon">
+
+                        ${item.icon}
+
+                    </div>
+
+                    <div class="timelineContent">
+
+                        <h4>${item.title}</h4>
+
+                        <p>${item.subtitle}</p>
+
+                    </div>
+
+                    <div class="timelineTime">
+
+                        ${item.time}
+
+                    </div>
+
+                </div>
+
+            `).join("")}
+
+        </div>
+
+    </div>
+
+    `;
+
+}
