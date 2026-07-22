@@ -1,81 +1,256 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Roam with Roma 🇨🇭</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+<title>Roam with Roma</title>
+
+<meta name="theme-color" content="#0A84FF">
 
 <link rel="manifest" href="manifest.json">
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
 <link rel="stylesheet" href="style.css">
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-<meta name="theme-color" content="#0A84FF">
 </head>
 
 <body>
 
 <div id="app">
 
-<header class="topBar">
+    <!-- Top Header -->
+
+    <header class="topBar">
+
+        <div>
+
+            <h1>Roam with Roma 🇨🇭</h1>
+
+            <p id="tripCountdown"></p>
+
+        </div>
+
+        <div class="profile">
+
+            ✈️
+
+        </div>
+
+    </header>
+
+
+
+    <!-- Screen Container -->
+
+    <main id="screen">
+
+    </main>
+
+
+
+    <!-- Bottom Navigation -->
+
+    <nav class="bottomNav">
+
+        <button id="homeBtn" onclick="navigate('home')">
+
+            <div class="icon">🏠</div>
+
+            <span>Home</span>
+
+        </button>
+
+        <button id="tripBtn" onclick="navigate('trip')">
+
+            <div class="icon">🗓️</div>
+
+            <span>Itinerary</span>
+
+        </button>
+
+        <button id="budgetBtn" onclick="navigate('budget')">
+
+            <div class="icon">💰</div>
+
+            <span>Budget</span>
+
+        </button>
+
+        <button id="moreBtn" onclick="navigate('more')">
+
+            <div class="icon">☰</div>
+
+            <span>More</span>
+
+        </button>
+
+    </nav>
+
+</div>
+
+
+
+<!-- ========================= -->
+<!-- Templates -->
+<!-- ========================= -->
+
+<template id="home-template">
+
+<section class="hero">
+
+    <div class="heroOverlay">
+
+        <h2>Switzerland Adventure</h2>
+
+        <p>17 Aug – 25 Aug 2026</p>
+
+    </div>
+
+</section>
+
+<section class="summaryCard">
+
+<h3>Trip Summary</h3>
+
+<div class="summaryGrid">
 
 <div>
 
-<h1>Roam with Roma</h1>
+<h4 id="tripDays"></h4>
 
-<p id="tripCountdown"></p>
+<p>Days</p>
+
+</div>
+
+<div>
+
+<h4>3</h4>
+
+<p>Travellers</p>
 
 </div>
 
-<div class="avatar">
-🇨🇭
-</div>
+<div>
 
-</header>
+<h4>2</h4>
 
-<main id="screen">
-
-</main>
-
-<nav class="bottomNav">
-
-<button onclick="navigate('home')">
-
-🏠
-
-<span>Home</span>
-
-</button>
-
-<button onclick="navigate('trip')">
-
-🗓
-
-<span>Trip</span>
-
-</button>
-
-<button onclick="navigate('budget')">
-
-💰
-
-<span>Budget</span>
-
-</button>
-
-<button onclick="navigate('more')">
-
-⋯
-
-<span>More</span>
-
-</button>
-
-</nav>
+<p>Hotels</p>
 
 </div>
+
+<div>
+
+<h4>9</h4>
+
+<p>Trip Days</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<h3 class="sectionTitle">
+
+Upcoming Days
+
+</h3>
+
+<div id="upcomingDays">
+
+</div>
+
+</section>
+
+</template>
+
+
+
+<template id="trip-template">
+
+<h2 class="pageTitle">
+
+Trip Itinerary
+
+</h2>
+
+<div id="tripList">
+
+</div>
+
+</template>
+
+
+
+<template id="budget-template">
+
+<h2 class="pageTitle">
+
+Budget
+
+</h2>
+
+<div id="budgetContent">
+
+</div>
+
+</template>
+
+
+
+<template id="more-template">
+
+<h2 class="pageTitle">
+
+More
+
+</h2>
+
+<div class="menuList">
+
+<button onclick="showFlights()">
+
+✈ Flights
+
+</button>
+
+<button onclick="showHotels()">
+
+🏨 Hotels
+
+</button>
+
+<button onclick="showPacking()">
+
+🎒 Packing
+
+</button>
+
+<button onclick="showEmergency()">
+
+📞 Emergency
+
+</button>
+
+<button onclick="showAbout()">
+
+ℹ About
+
+</button>
+
+</div>
+
+</template>
+
+
 
 <script src="tripData.js"></script>
 
