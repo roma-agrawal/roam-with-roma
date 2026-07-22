@@ -1,154 +1,441 @@
+/* ------------------------------
+   Roam with Roma v1.0
+   Apple Inspired UI
+------------------------------ */
+
+:root{
+
+    --primary:#0A84FF;
+    --background:#F5F7FA;
+    --card:#ffffff;
+    --text:#111111;
+    --sub:#6E6E73;
+    --shadow:0 12px 30px rgba(0,0,0,.08);
+    --radius:24px;
+
+}
+
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Inter,sans-serif;
+
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+
+}
+
+html{
+
+    scroll-behavior:smooth;
+
 }
 
 body{
 
-background:#F5F7FB;
-
-color:#222;
-
-padding-bottom:90px;
+    background:var(--background);
+    font-family:Inter,sans-serif;
+    color:var(--text);
 
 }
 
-header{
+#app{
 
-padding:35px 20px;
-
-}
-
-h1{
-
-font-size:30px;
-
-font-weight:700;
+    max-width:480px;
+    margin:auto;
+    min-height:100vh;
+    background:#fff;
+    position:relative;
+    overflow:hidden;
 
 }
 
-#countdown{
+/* ------------------------------
+   HEADER
+------------------------------ */
 
-margin-top:10px;
+.topBar{
 
-color:#666;
+    padding:26px 20px 12px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    background:white;
+
+    position:sticky;
+
+    top:0;
+
+    z-index:99;
+
+    border-bottom:1px solid #efefef;
 
 }
+
+.topBar h1{
+
+    font-size:28px;
+
+    font-weight:700;
+
+}
+
+#tripCountdown{
+
+    color:var(--sub);
+
+    margin-top:5px;
+
+    font-size:15px;
+
+}
+
+.avatar{
+
+    width:52px;
+
+    height:52px;
+
+    border-radius:50%;
+
+    background:#EEF6FF;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:28px;
+
+}
+
+/* ------------------------------
+   MAIN
+------------------------------ */
+
+#screen{
+
+    padding:18px;
+
+    padding-bottom:110px;
+
+}
+
+/* ------------------------------
+   HERO
+------------------------------ */
 
 .hero{
 
-padding:20px;
+    background:linear-gradient(
+        135deg,
+        #0A84FF,
+        #4AA3FF
+    );
+
+    color:white;
+
+    padding:28px;
+
+    border-radius:28px;
+
+    box-shadow:var(--shadow);
 
 }
 
-.hero-card{
+.hero h2{
 
-background:white;
+    font-size:30px;
 
-border-radius:24px;
-
-padding:25px;
-
-box-shadow:0 10px 35px rgba(0,0,0,.08);
+    margin-bottom:10px;
 
 }
 
-.hero-card h2{
+.hero p{
 
-font-size:28px;
+    opacity:.9;
 
-margin-bottom:10px;
-
-}
-
-.hero-card p{
-
-color:#666;
-
-margin-bottom:20px;
+    margin-bottom:22px;
 
 }
 
-button{
+.primaryBtn{
 
-background:#4F8EF7;
+    background:white;
 
-color:white;
+    color:#0A84FF;
 
-border:none;
+    border:none;
 
-padding:15px 20px;
+    padding:14px 22px;
 
-border-radius:14px;
+    border-radius:16px;
 
-font-size:16px;
+    font-weight:600;
 
-cursor:pointer;
+    font-size:15px;
 
-}
-
-.quick{
-
-padding:20px;
+    cursor:pointer;
 
 }
 
-.grid{
+/* ------------------------------
+   SECTION
+------------------------------ */
 
-display:grid;
+.section{
 
-grid-template-columns:repeat(2,1fr);
-
-gap:15px;
-
-margin-top:20px;
+    margin-top:34px;
 
 }
 
-.card{
+.section h3{
 
-background:white;
+    margin-bottom:18px;
 
-padding:25px;
-
-border-radius:20px;
-
-text-align:center;
-
-font-size:18px;
-
-box-shadow:0 8px 25px rgba(0,0,0,.06);
-
-transition:.3s;
+    font-size:22px;
 
 }
 
-.card:hover{
+/* ------------------------------
+   CARDS
+------------------------------ */
 
-transform:translateY(-4px);
+.cards{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:16px;
 
 }
 
-nav{
+.tripCard{
 
-position:fixed;
+    background:white;
 
-bottom:0;
+    border-radius:22px;
 
-left:0;
+    padding:18px;
 
-right:0;
+    display:flex;
 
-background:white;
+    gap:16px;
 
-display:flex;
+    align-items:center;
 
-justify-content:space-around;
+    box-shadow:var(--shadow);
 
-padding:12px;
+    transition:.25s;
 
-box-shadow:0 -5px 20px rgba(0,0,0,.08);
+    cursor:pointer;
+
+}
+
+.tripCard:hover{
+
+    transform:translateY(-3px);
+
+}
+
+.tripCard h3{
+
+    font-size:16px;
+
+}
+
+.tripCard h4{
+
+    margin-top:4px;
+
+}
+
+.tripCard p{
+
+    color:var(--sub);
+
+    margin-top:4px;
+
+}
+
+.emoji{
+
+    width:58px;
+
+    height:58px;
+
+    border-radius:18px;
+
+    background:#EEF6FF;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:30px;
+
+}
+
+/* ------------------------------
+   PAGE TITLE
+------------------------------ */
+
+.pageTitle{
+
+    margin-bottom:20px;
+
+    font-size:28px;
+
+}
+
+/* ------------------------------
+   BUDGET
+------------------------------ */
+
+.budgetCard{
+
+    background:linear-gradient(
+        135deg,
+        #34C759,
+        #59D67D
+    );
+
+    color:white;
+
+    border-radius:28px;
+
+    padding:28px;
+
+    margin-bottom:24px;
+
+    box-shadow:var(--shadow);
+
+}
+
+.budgetCard h1{
+
+    font-size:42px;
+
+    margin-bottom:8px;
+
+}
+
+/* ------------------------------
+   NAVIGATION
+------------------------------ */
+
+.bottomNav{
+
+    position:fixed;
+
+    bottom:0;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:100%;
+
+    max-width:480px;
+
+    background:rgba(255,255,255,.95);
+
+    backdrop-filter:blur(20px);
+
+    display:flex;
+
+    justify-content:space-around;
+
+    padding:12px 0 18px;
+
+    border-top:1px solid #ececec;
+
+}
+
+.bottomNav button{
+
+    background:none;
+
+    border:none;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    color:#777;
+
+    font-size:22px;
+
+    cursor:pointer;
+
+}
+
+.bottomNav span{
+
+    font-size:12px;
+
+    margin-top:5px;
+
+}
+
+/* ------------------------------
+   DARK MODE
+------------------------------ */
+
+@media(prefers-color-scheme:dark){
+
+:root{
+
+--background:#111;
+
+--card:#1C1C1E;
+
+--text:#fff;
+
+--sub:#bdbdbd;
+
+}
+
+body{
+
+background:#000;
+
+}
+
+#app{
+
+background:#000;
+
+}
+
+.topBar{
+
+background:#111;
+
+border-bottom:1px solid #2a2a2a;
+
+}
+
+.tripCard{
+
+background:#1C1C1E;
+
+}
+
+.bottomNav{
+
+background:rgba(18,18,18,.95);
+
+border-top:1px solid #2b2b2b;
+
+}
 
 }
