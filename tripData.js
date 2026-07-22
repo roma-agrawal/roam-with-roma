@@ -251,6 +251,318 @@ const trip = {
       ]
 
     }
+    ,
+{
+    id:"day6",
+
+    date:"22 Aug 2026",
+
+    title:"Brienz Rothorn Steam Train & Aare Gorge",
+
+    icon:"🚂",
+
+    timeline:[
+
+        {
+            time:"07:00",
+            icon:"☀️",
+            title:"Wake Up",
+            subtitle:"Adventure Day"
+        },
+
+        {
+            time:"07:45",
+            icon:"🥐",
+            title:"Breakfast",
+            subtitle:"Interlaken Youth Hostel"
+        },
+
+        {
+            time:"08:15",
+            icon:"🚗",
+            title:"Drive",
+            subtitle:"Interlaken → Brienz"
+        },
+
+        {
+            time:"09:00",
+            icon:"🚂",
+            title:"Brienz Rothorn Steam Train",
+            subtitle:"Round Trip Journey"
+        },
+
+        {
+            time:"13:00",
+            icon:"🍔",
+            title:"Lunch",
+            subtitle:"Brienz"
+        },
+
+        {
+            time:"14:30",
+            icon:"🥾",
+            title:"Aare Gorge",
+            subtitle:"Walk through the Gorge"
+        },
+
+        {
+            time:"17:00",
+            icon:"☕",
+            title:"Coffee Break",
+            subtitle:"Brienz Lakefront"
+        },
+
+        {
+            time:"18:00",
+            icon:"🚗",
+            title:"Return",
+            subtitle:"Interlaken"
+        },
+
+        {
+            time:"20:00",
+            icon:"🍽️",
+            title:"Dinner",
+            subtitle:"Near Hostel"
+        }
+
+    ]
+
+},
+
+{
+    id:"day7",
+
+    date:"23 Aug 2026",
+
+    title:"Oeschinensee Lake",
+
+    icon:"🏞️",
+
+    timeline:[
+
+        {
+            time:"06:45",
+            icon:"☀️",
+            title:"Wake Up",
+            subtitle:"Early Start"
+        },
+
+        {
+            time:"07:30",
+            icon:"🥐",
+            title:"Breakfast",
+            subtitle:"Youth Hostel"
+        },
+
+        {
+            time:"08:00",
+            icon:"🚗",
+            title:"Drive",
+            subtitle:"Interlaken → Kandersteg"
+        },
+
+        {
+            time:"09:15",
+            icon:"🚠",
+            title:"Cable Car",
+            subtitle:"To Oeschinensee"
+        },
+
+        {
+            time:"10:00",
+            icon:"🥾",
+            title:"Hike Down to Lake",
+            subtitle:"Enjoy Scenic Trail"
+        },
+
+        {
+            time:"12:00",
+            icon:"📸",
+            title:"Photography",
+            subtitle:"Relax by the Lake"
+        },
+
+        {
+            time:"13:00",
+            icon:"🍽️",
+            title:"Lunch",
+            subtitle:"Near Lake"
+        },
+
+        {
+            time:"15:00",
+            icon:"🚠",
+            title:"Return Cable Car",
+            subtitle:"Back to Parking"
+        },
+
+        {
+            time:"17:00",
+            icon:"🚗",
+            title:"Drive Back",
+            subtitle:"Interlaken"
+        }
+
+    ]
+
+},
+
+{
+    id:"day8",
+
+    date:"24 Aug 2026",
+
+    title:"Gelmerbahn & Lucerne",
+
+    icon:"🚠",
+
+    timeline:[
+
+        {
+            time:"06:45",
+            icon:"☀️",
+            title:"Wake Up",
+            subtitle:"Last Full Day"
+        },
+
+        {
+            time:"07:30",
+            icon:"🥐",
+            title:"Breakfast",
+            subtitle:"Youth Hostel"
+        },
+
+        {
+            time:"08:00",
+            icon:"🚗",
+            title:"Drive",
+            subtitle:"Interlaken → Gelmerbahn"
+        },
+
+        {
+            time:"09:30",
+            icon:"🚠",
+            title:"Ride Gelmerbahn",
+            subtitle:"Steep Funicular"
+        },
+
+        {
+            time:"11:00",
+            icon:"🚗",
+            title:"Drive",
+            subtitle:"To Lucerne"
+        },
+
+        {
+            time:"12:30",
+            icon:"🍽️",
+            title:"Lunch",
+            subtitle:"Lucerne Old Town"
+        },
+
+        {
+            time:"14:00",
+            icon:"🚆",
+            title:"GoldenPass Scenic Train",
+            subtitle:"Lucerne → Interlaken"
+        },
+
+        {
+            time:"16:00",
+            icon:"🚗",
+            title:"Collect Car",
+            subtitle:"Interlaken Station Parking"
+        },
+
+        {
+            time:"18:00",
+            icon:"🧳",
+            title:"Pack Bags",
+            subtitle:"Prepare for Departure"
+        }
+
+    ]
+
+},
+
+{
+    id:"day9",
+
+    date:"25 Aug 2026",
+
+    title:"Return Home",
+
+    icon:"✈️",
+
+    timeline:[
+
+        {
+            time:"05:00",
+            icon:"☀️",
+            title:"Wake Up",
+            subtitle:"Departure Day"
+        },
+
+        {
+            time:"05:30",
+            icon:"🧳",
+            title:"Check Out",
+            subtitle:"Interlaken Youth Hostel"
+        },
+
+        {
+            time:"05:45",
+            icon:"🚗",
+            title:"Drive",
+            subtitle:"Interlaken → Zurich Airport"
+        },
+
+        {
+            time:"09:00",
+            icon:"🚗",
+            title:"Return Rental Car",
+            subtitle:"Zurich Airport"
+        },
+
+        {
+            time:"09:30",
+            icon:"🛫",
+            title:"Airport Check-in",
+            subtitle:"Swiss LX146"
+        },
+
+        {
+            time:"12:10",
+            icon:"✈️",
+            title:"Flight",
+            subtitle:"Zurich → Delhi"
+        },
+
+        {
+            time:"23:35",
+            icon:"🌙",
+            title:"Arrive Delhi",
+            subtitle:"Transit"
+        },
+
+        {
+            time:"02:00",
+            icon:"✈️",
+            title:"Delhi → Hyderabad",
+            subtitle:"AI2577"
+        },
+
+        {
+            time:"04:20",
+            icon:"🏠",
+            title:"Reach Home",
+            subtitle:"Trip Complete ❤️"
+        }
+
+    ]
+
+}
 
   ]
 };
