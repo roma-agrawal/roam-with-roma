@@ -3,7 +3,7 @@ const trip = {
   startDate: "2026-08-17",
   endDate: "2026-08-25",
 
-  travelers: [
+  travellers: [
     "Roma",
     "Husband",
     "Ryan"
@@ -12,36 +12,32 @@ const trip = {
   budget: {
     flights: 214000,
     hotels: 200000,
-    carRentalCHF: 600,
     food: 50000,
-    misc: 50000
+    misc: 50000,
+    carRentalCHF: 600
   },
 
   flights: [
     {
-      from: "Hyderabad",
-      to: "Delhi",
+      sector: "Hyderabad → Delhi",
       flight: "AI2870",
       departure: "16 Aug 2026 21:30",
       arrival: "16 Aug 2026 23:55"
     },
     {
-      from: "Delhi",
-      to: "Zurich",
+      sector: "Delhi → Zurich",
       flight: "LX2647",
       departure: "17 Aug 2026 01:40",
       arrival: "17 Aug 2026 07:00"
     },
     {
-      from: "Zurich",
-      to: "Delhi",
+      sector: "Zurich → Delhi",
       flight: "LX146",
       departure: "25 Aug 2026 12:10",
       arrival: "25 Aug 2026 23:35"
     },
     {
-      from: "Delhi",
-      to: "Hyderabad",
+      sector: "Delhi → Hyderabad",
       flight: "AI2577",
       departure: "26 Aug 2026 02:00",
       arrival: "26 Aug 2026 04:20"
@@ -51,142 +47,210 @@ const trip = {
   hotels: [
     {
       name: "Bellagio Area Hotel",
-      nights: 2,
-      dates: "17–19 Aug"
+      dates: "17–19 Aug",
+      nights: 2
     },
     {
       name: "Interlaken Youth Hostel",
-      nights: 6,
-      dates: "19–25 Aug"
+      dates: "19–25 Aug",
+      nights: 6
     }
   ],
 
+  packing: [
+    "Passport",
+    "Swiss Half Fare Card",
+    "Driving Licence",
+    "International Driving Permit",
+    "Credit Cards",
+    "Power Bank",
+    "Universal Adapter",
+    "Warm Jacket",
+    "Rain Jacket",
+    "Hiking Shoes",
+    "Sunglasses",
+    "Cap",
+    "Water Bottle",
+    "Insta360 X4",
+    "Phone Charger",
+    "Camera Batteries",
+    "Medicines"
+  ],
+
+  emergency: {
+    police: "117",
+    ambulance: "144",
+    fire: "118",
+    roadside: "140"
+  },
+
   days: [
+
     {
-      day: 1,
-      date: "17 Aug",
+      id: "day1",
+      date: "17 Aug 2026",
       title: "Arrival Zurich → Lake Como",
-      icon: "🚗"
+      icon: "🇮🇹",
+
+      timeline: [
+
+        {time:"07:00",icon:"🛬",title:"Arrive Zurich Airport",subtitle:"Immigration & baggage"},
+
+        {time:"08:00",icon:"🚗",title:"Collect Rental Car",subtitle:"Airport Rental Centre"},
+
+        {time:"08:45",icon:"☕",title:"Coffee Break",subtitle:"Before long drive"},
+
+        {time:"09:00",icon:"🛣️",title:"Drive to Bellagio",subtitle:"Approx. 4 hrs + breaks"},
+
+        {time:"11:15",icon:"🍽️",title:"Lunch Stop",subtitle:"Service Area in Switzerland / Italy"},
+
+        {time:"14:00",icon:"🏨",title:"Hotel Check-in",subtitle:"Bellagio Area"},
+
+        {time:"16:00",icon:"🚶",title:"Explore Bellagio",subtitle:"Old Town & Lakeside"},
+
+        {time:"19:00",icon:"🍕",title:"Dinner",subtitle:"Lakefront Restaurant"},
+
+        {time:"21:00",icon:"😴",title:"Sleep Early",subtitle:"Recover from overnight flight"}
+
+      ]
+
     },
+
     {
-      day: 2,
-      date: "18 Aug",
-      title: "Explore Lake Como",
-      icon: "⛵"
+      id:"day2",
+
+      date:"18 Aug 2026",
+
+      title:"Lake Como",
+
+      icon:"⛵",
+
+      timeline:[
+
+        {time:"08:00",icon:"☀️",title:"Wake Up",subtitle:"Relaxed Morning"},
+
+        {time:"08:45",icon:"🥐",title:"Breakfast",subtitle:"Hotel"},
+
+        {time:"10:00",icon:"⛴️",title:"Bellagio Ferry",subtitle:"Explore Varenna & Menaggio"},
+
+        {time:"13:00",icon:"🍝",title:"Lunch",subtitle:"Lake Como"},
+
+        {time:"15:00",icon:"📸",title:"Photo Stops",subtitle:"Bellagio Streets & Gardens"},
+
+        {time:"17:30",icon:"☕",title:"Coffee",subtitle:"Lakefront Café"},
+
+        {time:"20:00",icon:"🍽️",title:"Dinner",subtitle:"Bellagio"},
+
+        {time:"22:00",icon:"😴",title:"Rest",subtitle:"Prepare for Switzerland"}
+
+      ]
+
     },
+
     {
-      day: 3,
-      date: "19 Aug",
-      title: "Drive to Interlaken & Lake Brienz Cruise",
-      icon: "🚢"
+      id:"day3",
+
+      date:"19 Aug 2026",
+
+      title:"Drive to Interlaken & Lake Brienz Cruise",
+
+      icon:"🚢",
+
+      timeline:[
+
+        {time:"07:00",icon:"☀️",title:"Wake Up",subtitle:"Check-out Day"},
+
+        {time:"08:00",icon:"🥐",title:"Breakfast",subtitle:"Hotel"},
+
+        {time:"09:00",icon:"🚗",title:"Drive to Interlaken",subtitle:"Approx. 3 hrs"},
+
+        {time:"12:00",icon:"🏨",title:"Check-in",subtitle:"Interlaken Youth Hostel"},
+
+        {time:"13:30",icon:"🍽️",title:"Lunch",subtitle:"Interlaken"},
+
+        {time:"15:00",icon:"🚢",title:"Lake Brienz Cruise",subtitle:"Relax & Sightseeing"},
+
+        {time:"18:00",icon:"🚶",title:"Explore Interlaken",subtitle:"Around Höhematte"},
+
+        {time:"20:00",icon:"🍕",title:"Dinner",subtitle:"Near Hostel"},
+
+        {time:"22:00",icon:"😴",title:"Sleep Early",subtitle:"Adventure starts tomorrow"}
+
+      ]
+
     },
+
     {
-    id:"day4",
+      id:"day4",
 
-    day:4,
+      date:"20 Aug 2026",
 
-    date:"20 Aug 2026",
+      title:"Paragliding • Lauterbrunnen • Mürren",
 
-    title:"Paragliding • Lauterbrunnen • Mürren",
+      icon:"🪂",
 
-    icon:"🪂",
+      timeline:[
 
-    timeline:[
+        {time:"07:00",icon:"☀️",title:"Wake Up",subtitle:"Adventure Day"},
 
-        {
-            time:"07:00",
-            icon:"☀️",
-            title:"Wake Up",
-            subtitle:"Get ready for adventure"
-        },
+        {time:"07:45",icon:"🥐",title:"Breakfast",subtitle:"Youth Hostel"},
 
-        {
-            time:"07:45",
-            icon:"🥐",
-            title:"Breakfast",
-            subtitle:"Interlaken Youth Hostel"
-        },
+        {time:"08:15",icon:"🚗",title:"Drive",subtitle:"Interlaken → Stechelberg"},
 
-        {
-            time:"08:15",
-            icon:"🚗",
-            title:"Drive",
-            subtitle:"Interlaken → Stechelberg (Approx. 20–25 min)"
-        },
+        {time:"08:45",icon:"🅿️",title:"Parking",subtitle:"Stechelberg"},
 
-        {
-            time:"08:45",
-            icon:"🅿",
-            title:"Parking",
-            subtitle:"Stechelberg Parking"
-        },
+        {time:"08:50",icon:"🚶",title:"Walk",subtitle:"Meeting Point"},
 
-        {
-            time:"08:50",
-            icon:"🚶",
-            title:"Walk",
-            subtitle:"5 mins to meeting point"
-        },
+        {time:"09:00",icon:"🪂",title:"Tandem Paragliding",subtitle:"First Slot"},
 
-        {
-            time:"09:00",
-            icon:"🪂",
-            title:"Tandem Paragliding",
-            subtitle:"First Slot"
-        },
+        {time:"12:00",icon:"🍔",title:"Lunch",subtitle:"Lauterbrunnen"},
 
-        {
-            time:"12:00",
-            icon:"🍽",
-            title:"Lunch",
-            subtitle:"Lauterbrunnen Village"
-        },
+        {time:"13:30",icon:"🚠",title:"Visit Mürren",subtitle:"Cable Car"},
 
-        {
-            time:"13:30",
-            icon:"🚠",
-            title:"Visit Mürren",
-            subtitle:"Cable car from Stechelberg"
-        },
+        {time:"17:30",icon:"🚗",title:"Return",subtitle:"Back to Interlaken"},
 
-        {
-            time:"18:00",
-            icon:"🏨",
-            title:"Return",
-            subtitle:"Interlaken Youth Hostel"
-        }
+        {time:"20:00",icon:"🍽️",title:"Dinner",subtitle:"Interlaken"}
 
-    ]
-},
-    {
-      day: 5,
-      date: "21 Aug",
-      title: "Grindelwald First",
-      icon: "🏔️"
+      ]
+
     },
+
     {
-      day: 6,
-      date: "22 Aug",
-      title: "Brienz Rothorn & Aare Gorge",
-      icon: "🚂"
-    },
-    {
-      day: 7,
-      date: "23 Aug",
-      title: "Oeschinensee",
-      icon: "🥾"
-    },
-    {
-      day: 8,
-      date: "24 Aug",
-      title: "Gelmerbahn & Lucerne",
-      icon: "🚠"
-    },
-    {
-      day: 9,
-      date: "25 Aug",
-      title: "Return to Zurich Airport",
-      icon: "✈️"
+      id:"day5",
+
+      date:"21 Aug 2026",
+
+      title:"Grindelwald First",
+
+      icon:"🏔️",
+
+      timeline:[
+
+        {time:"06:45",icon:"☀️",title:"Wake Up",subtitle:"Leave Early"},
+
+        {time:"07:30",icon:"🥐",title:"Breakfast",subtitle:"Hostel"},
+
+        {time:"08:00",icon:"🚗",title:"Drive",subtitle:"To Grindelwald Terminal"},
+
+        {time:"08:30",icon:"🅿️",title:"Parking",subtitle:"Terminal Parking"},
+
+        {time:"09:00",icon:"🚠",title:"First Gondola",subtitle:"To First"},
+
+        {time:"10:00",icon:"🦅",title:"First Flyer",subtitle:"Adventure"},
+
+        {time:"11:00",icon:"🪂",title:"First Glider",subtitle:"Adventure"},
+
+        {time:"12:00",icon:"🛺",title:"Mountain Cart",subtitle:"Adventure"},
+
+        {time:"14:00",icon:"🍽️",title:"Lunch",subtitle:"Grindelwald Village"},
+
+        {time:"16:00",icon:"☕",title:"Explore Village",subtitle:"Shopping & Coffee"},
+
+        {time:"18:00",icon:"🚗",title:"Return",subtitle:"Interlaken"}
+
+      ]
+
     }
+
   ]
 };
