@@ -81,11 +81,83 @@ const trip = {
       icon: "🚢"
     },
     {
-      day: 4,
-      date: "20 Aug",
-      title: "Paragliding • Lauterbrunnen • Mürren",
-      icon: "🪂"
-    },
+    id:"day4",
+
+    day:4,
+
+    date:"20 Aug 2026",
+
+    title:"Paragliding • Lauterbrunnen • Mürren",
+
+    icon:"🪂",
+
+    timeline:[
+
+        {
+            time:"07:00",
+            icon:"☀️",
+            title:"Wake Up",
+            subtitle:"Get ready for adventure"
+        },
+
+        {
+            time:"07:45",
+            icon:"🥐",
+            title:"Breakfast",
+            subtitle:"Interlaken Youth Hostel"
+        },
+
+        {
+            time:"08:15",
+            icon:"🚗",
+            title:"Drive",
+            subtitle:"Interlaken → Stechelberg (Approx. 20–25 min)"
+        },
+
+        {
+            time:"08:45",
+            icon:"🅿",
+            title:"Parking",
+            subtitle:"Stechelberg Parking"
+        },
+
+        {
+            time:"08:50",
+            icon:"🚶",
+            title:"Walk",
+            subtitle:"5 mins to meeting point"
+        },
+
+        {
+            time:"09:00",
+            icon:"🪂",
+            title:"Tandem Paragliding",
+            subtitle:"First Slot"
+        },
+
+        {
+            time:"12:00",
+            icon:"🍽",
+            title:"Lunch",
+            subtitle:"Lauterbrunnen Village"
+        },
+
+        {
+            time:"13:30",
+            icon:"🚠",
+            title:"Visit Mürren",
+            subtitle:"Cable car from Stechelberg"
+        },
+
+        {
+            time:"18:00",
+            icon:"🏨",
+            title:"Return",
+            subtitle:"Interlaken Youth Hostel"
+        }
+
+    ]
+},
     {
       day: 5,
       date: "21 Aug",
